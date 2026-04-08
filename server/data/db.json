@@ -1,0 +1,110 @@
+{
+  "channels": [
+    {
+      "id": "general",
+      "name": "general",
+      "icon": "💬",
+      "description": "Team-wide discussion",
+      "category": "text"
+    },
+    {
+      "id": "dev",
+      "name": "dev",
+      "icon": "💻",
+      "description": "Development talk",
+      "category": "text"
+    },
+    {
+      "id": "ai-lab",
+      "name": "ai-lab",
+      "icon": "🤖",
+      "description": "AI experiments",
+      "category": "text"
+    },
+    {
+      "id": "random",
+      "name": "random",
+      "icon": "🎲",
+      "description": "Off-topic chatter",
+      "category": "text"
+    },
+    {
+      "id": "bug-bounty",
+      "name": "bug-bounty",
+      "icon": "🐛",
+      "description": "Security findings",
+      "category": "text"
+    }
+  ],
+  "messages": {
+    "general": [
+      {
+        "id": "e0459362-f80f-49a8-bad8-355d5abf5359",
+        "type": "system",
+        "content": "denish joined the server",
+        "channelId": "general",
+        "timestamp": "2026-04-08T13:41:44.621Z"
+      },
+      {
+        "id": "f8940b06-b350-4bef-92c8-56c030766b51",
+        "type": "system",
+        "content": "denish left the server",
+        "channelId": "general",
+        "timestamp": "2026-04-08T13:42:04.330Z"
+      },
+      {
+        "id": "67192228-d0e5-4c41-a8ba-79c8cea2fe75",
+        "type": "system",
+        "content": "lucifer joined the server",
+        "channelId": "general",
+        "timestamp": "2026-04-08T14:02:34.577Z"
+      },
+      {
+        "id": "e4363d95-b5fd-431c-b1e1-782c2721ccb6",
+        "type": "system",
+        "content": "hitesh joined the server",
+        "channelId": "general",
+        "timestamp": "2026-04-08T14:02:49.099Z"
+      },
+      {
+        "id": "01c629e3-3c2b-4ac5-baf7-3dbae82d0ca1",
+        "type": "message",
+        "username": "lucifer",
+        "avatar": "🚀",
+        "color": "#3b82f6",
+        "content": "hello",
+        "channelId": "general",
+        "timestamp": "2026-04-08T14:02:54.862Z",
+        "role": "user"
+      },
+      {
+        "id": "9020225a-e5e4-4992-961e-f6a35609efb9",
+        "type": "message",
+        "username": "hitesh",
+        "avatar": "💀",
+        "color": "#8b5cf6",
+        "content": "hello",
+        "channelId": "general",
+        "timestamp": "2026-04-08T14:03:03.519Z",
+        "role": "user"
+      }
+    ],
+    "dev": [],
+    "ai-lab": [],
+    "random": [],
+    "bug-bounty": [
+      {
+        "id": "c669cb0a-f13a-4b67-b2a8-9d8d4945e07d",
+        "type": "message",
+        "username": "lucifer",
+        "avatar": "💀",
+        "color": "#3b82f6",
+        "content": "what is ai",
+        "channelId": "bug-bounty",
+        "timestamp": "2026-04-08T13:28:38.493Z",
+        "role": "user"
+      }
+    ]
+  },
+  "users": {}
+}

@@ -1,3 +1,8 @@
+# Node.js
+node_modules/
+npm-debug.log*
+.npm
+
 # Python
 __pycache__/
 *.py[cod]
@@ -14,6 +19,11 @@ env/
 .venv/
 .env/
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
 # IDE
 .vscode/
 .idea/
@@ -24,5 +34,10 @@ env/
 .DS_Store
 Thumbs.db
 
-# Data (optional: remove this line if you want to track chat history)
+# Data / DB (auto-generated at runtime)
 data/chat.json
+server/data/db.json
+
+# Logs
+*.log
+logs/

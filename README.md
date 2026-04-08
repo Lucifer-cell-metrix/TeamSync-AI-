@@ -1,57 +1,68 @@
-<p align="center">
-  <img src="screenshot.png" alt="TeamMind AI" width="800"/>
-</p>
-
-<h1 align="center">🧠 TeamMind AI</h1>
+<h1 align="center">🧠 TeamSync AI</h1>
 
 <p align="center">
-  <strong>AI-Powered Team Collaboration & Requirements Analyzer</strong><br/>
-  Your team discusses → AI organizes everything into requirements, tasks & documentation.
+  <strong>Real-Time Communication Platform + AI Product Manager</strong><br/>
+  Your team discusses → AI reads the conversation → generates analysis, SRS docs, architecture, timelines & test cases.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/python-3.8+-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"/>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
+  <img src="https://img.shields.io/badge/Node.js-22+-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Express-5-000000?style=for-the-badge&logo=express&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Socket.io-4-010101?style=for-the-badge&logo=socket.io&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Ollama-Mistral-purple?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Built%20from-Scratch-ff6b35?style=for-the-badge"/>
 </p>
 
 ---
 
-## ✨ What is TeamMind AI?
+## 🚀 What is TeamSync AI?
 
-**TeamMind AI** is a real-time team collaboration platform where multiple team members can have a discussion — and then an AI agent analyzes the entire conversation to automatically extract:
+**TeamSync AI** is a fully custom-built real-time communication platform — built **from scratch**, no Discord, no Slack, no third-party chat service. Your team chats in real-time, then the AI reads the entire conversation and generates professional software documentation automatically.
 
-- 📋 **Requirements** from the discussion
-- 📌 **Actionable Tasks** for the team
-- 📄 **Auto-Generated Documentation** — a project brief from the conversation
-- 📊 **Conversation Stats** — message counts, participant tracking
-
-> **Think of it as:** Slack meets an AI Project Manager — your team talks, and AI does the organizing.
+> Think of it as: **Slack + Notion AI + Jira — combined, built by you.**
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧑‍🤝‍🧑 **Multi-User Chat** | Switch between 3 team roles (Business Analyst, Developer, DevOps Engineer) and chat |
-| 🧠 **AI Analysis** | One-click AI analysis that processes the entire team discussion |
-| 📋 **Requirement Extraction** | Automatically identifies requirements from natural conversation |
-| 📌 **Task Generation** | Creates actionable tasks based on extracted requirements |
-| 📄 **Auto Documentation** | Generates a project brief with team members, requirements, and discussion log |
-| 💬 **Chat History** | Persistent message history stored in JSON |
-| 🗑️ **Clear History** | One-click reset for new discussions |
-| 🎨 **Premium UI** | Dark glassmorphism design with animated backgrounds and smooth micro-animations |
+### 💬 Real-Time Communication
+- Multi-channel chat (General, Dev, AI Lab, Bug Bounty, Random)
+- WebSocket-based instant messaging via Socket.io
+- Live typing indicators
+- Online presence & members sidebar
+- Message history persisted to JSON
 
----
+### 🤖 AI Assistant (`/ai` command)
+- Type `/ai <anything>` directly in chat
+- Connects to local **Ollama (mistral)** if running
+- **Smart built-in fallback** — works without Ollama too
+- Reads recent channel context for relevant answers
 
-## 📸 Screenshots
+### 🔬 Analyze Conversation
+- Click **Analyze Chat** button in the header
+- AI reads the entire channel conversation (last 50 msgs)
+- Returns:
+  - 📋 Summary
+  - 🎯 Key Points
+  - ✅ Action Items
+  - 💡 Suggestions
+- Shows participant stats, AI source indicator
+- Option to post analysis to chat
 
-<p align="center">
-  <img src="screenshot.png" alt="TeamMind AI Interface" width="700"/>
-</p>
+### 📄 Generate Documentation (AI Product Manager)
+- Click **Generate Docs** button — pick a mode:
+
+| Mode | What It Generates |
+|------|-------------------|
+| 📤 **Full SRS** | 12-section professional software doc |
+| 📋 **SRS Only** | FR-001 requirements + use cases |
+| 🏗️ **Architecture** | Tech stack, API design, DB schema |
+| ⏱️ **Timeline** | Sprint plan, effort breakdown, team size |
+| 🧪 **Test Cases** | TC-001 format, edge cases, security tests |
+
+- Export as **PDF** (browser print)
+- **Copy to clipboard** (raw markdown)
+- **Post to Chat** — share in channel
 
 ---
 
@@ -59,17 +70,23 @@
 
 ```
 teammind-ai/
-├── backend/
-│   ├── main.py          # FastAPI server — routes & API endpoints
-│   ├── ai.py            # AI analysis engine — requirement extraction & task generation
-│   └── memory.py        # Chat memory — JSON-based persistence layer
-├── frontend/
-│   └── index.html       # Complete SPA — chat UI with glassmorphism design
-├── data/
-│   └── chat.json        # Chat history (auto-generated)
-├── requirements.txt     # Python dependencies
-├── .gitignore           # Git exclusions
-└── README.md            # You are here!
+├── server/
+│   ├── index.js              # Express + Socket.io server entry
+│   ├── ai.js                 # AI engine: /ai command + analyze + generateDocs
+│   ├── routes/
+│   │   └── chat.js           # REST: channels, messages, analyze-chat, generate-docs
+│   ├── sockets/
+│   │   └── events.js         # All WebSocket event handlers
+│   └── data/
+│       ├── store.js          # JSON-backed data store
+│       └── db.json           # Persisted messages (auto-created)
+├── client/
+│   └── index.html            # Complete SPA — premium Discord-like UI
+├── backend/                  # Original Python/FastAPI prototype (kept for reference)
+│   ├── main.py
+│   ├── ai.py
+│   └── memory.py
+└── README.md
 ```
 
 ---
@@ -78,71 +95,69 @@ teammind-ai/
 
 ### Prerequisites
 
-- **Python 3.8+** installed
-- **pip** (Python package manager)
+- **Node.js 18+**
+- **npm**
+- *(Optional)* **Ollama** with mistral model for full LLM power
 
-### 1️⃣ Clone the Repository
+### 1️⃣ Clone
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/teammind-ai.git
-cd teammind-ai
+git clone https://github.com/Lucifer-cell-metrix/TeamSync-AI-.git
+cd TeamSync-AI-
 ```
 
 ### 2️⃣ Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+cd server
+npm install
 ```
 
-### 3️⃣ Start the Server
+### 3️⃣ Run the Server
 
 ```bash
-cd backend
-python -m uvicorn main:app --reload --port 8000
+node index.js
 ```
 
 ### 4️⃣ Open in Browser
 
-Navigate to **[http://localhost:8000](http://localhost:8000)** — and you're live! 🎉
+Go to **[http://localhost:3000](http://localhost:3000)** 🎉
 
 ---
 
-## 🎯 How to Use
+## 🤖 Optional: Enable Full Ollama AI
 
-1. **Select your identity** from the sidebar (Person1, Person2, or Person3)
-2. **Type your ideas** in the chat — discuss features, requirements, problems
-3. **Switch users** to simulate different team members contributing
-4. **Click "🧠 Ask AI to Analyze"** when the discussion has enough context
-5. **View the results:**
-   - 💬 Discussion summary per team member
-   - 📋 Extracted requirements with attribution
-   - 📌 Generated task list in the sidebar
-   - 📊 Conversation statistics
+For richer, context-aware AI responses:
+
+```bash
+# Install Ollama from https://ollama.ai
+ollama pull mistral
+ollama run mistral
+```
+
+The server auto-detects Ollama. If not running, the **built-in smart engine** handles all AI features automatically — no setup required.
 
 ---
 
-## 🔌 API Endpoints
+## 🌐 API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/` | Serves the frontend UI |
-| `GET` | `/history` | Returns all chat messages |
-| `POST` | `/chat` | Sends a new team member message |
-| `POST` | `/ask-ai` | Triggers AI analysis of the conversation |
-| `DELETE` | `/clear` | Clears all chat history |
+| `GET` | `/api/channels` | List all channels |
+| `GET` | `/api/messages/:channelId` | Fetch channel message history |
+| `GET` | `/api/online` | List online users |
+| `POST` | `/api/analyze-chat` | AI reads channel → summary + action items |
+| `POST` | `/api/generate-docs` | Generate SRS/architecture/timeline/tests from chat |
+| `DELETE` | `/api/messages/:channelId` | Clear channel history |
 
-### Example: Send a Message
+### Doc Generation Modes
 
 ```bash
-curl -X POST http://localhost:8000/chat \
+curl -X POST http://localhost:3000/api/generate-docs \
   -H "Content-Type: application/json" \
-  -d '{"user": "Person1", "role": "business", "content": "We need a login page"}'
-```
+  -d '{"channelId": "general", "mode": "full"}'
 
-### Example: Trigger AI Analysis
-
-```bash
-curl -X POST http://localhost:8000/ask-ai
+# mode options: full | srs | architecture | timeline | tests
 ```
 
 ---
@@ -151,63 +166,42 @@ curl -X POST http://localhost:8000/ask-ai
 
 | Layer | Technology |
 |-------|-----------|
-| **Backend** | Python, FastAPI, Uvicorn |
-| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
-| **AI Engine** | Custom NLP-based analysis (no external API keys needed!) |
-| **Data Storage** | JSON file-based persistence |
-| **Design** | Glassmorphism, CSS animations, Inter font |
+| **Backend** | Node.js, Express 5, Socket.io |
+| **Frontend** | HTML5, Vanilla CSS, Vanilla JavaScript |
+| **Real-time** | WebSockets via Socket.io |
+| **AI Engine** | Ollama (mistral) + custom built-in fallback |
+| **Storage** | JSON file-based persistence |
+| **Design** | Dark theme, glassmorphism, CSS animations, Inter font |
+
+> 100% built from scratch. No Discord API. No Slack. No boilerplate templates.
 
 ---
 
-## 🤖 How the AI Works
+## 🧠 How the AI Works
 
-TeamMind AI uses a **rule-based NLP engine** (no API keys required!) that:
+### `/ai` Command
+Sends recent channel context + your prompt to Ollama → built-in smart analysis fallback if Ollama is offline.
 
-1. **Filters** out greetings and filler messages (hi, hello, ok, etc.)
-2. **Groups** messages by team member and role
-3. **Extracts** substantive requirements from the discussion
-4. **Generates** actionable tasks from the requirements
-5. **Creates** a project brief document with all the organized data
+### Analyze Conversation
+Fetches last 50 user messages from channel → formats as transcript with timestamps → sends to Ollama with a structured analysis prompt → returns 4-section report.
 
-> 💡 **No external AI API needed** — the analysis runs entirely locally!
-
----
-
-## 🎨 Design Highlights
-
-- **Dark Mode** — Easy on the eyes with a `#0a0e1a` base
-- **Glassmorphism** — Frosted glass panels with `backdrop-filter: blur(20px)`
-- **Animated Orbs** — Floating gradient spheres in the background
-- **Micro-Animations** — Smooth message entry, hover effects, typing indicators
-- **Color-Coded Roles** — Blue (Business), Purple (Developer), Green (DevOps), Amber (AI)
-- **Responsive** — Adapts to mobile with sidebar collapse
+### Generate Docs
+Fetches last 60 messages → applies mode-specific expert prompt (senior architect / BA / QA / PM) → Ollama generates professional structured documentation → built-in fallback produces template-based docs using detected topics/keywords from conversation.
 
 ---
 
-## 📝 License
+## 💬 How to Use
 
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
-## 🌟 Star This Repo
-
-If you found this project useful, give it a ⭐ on GitHub — it helps a lot!
+1. Open **http://localhost:3000**
+2. Enter your name + pick an avatar emoji
+3. **Send messages** in any channel — have a real discussion
+4. Use **`/ai <question>`** for inline AI help
+5. Click **🔬 Analyze Chat** — AI reads the full conversation
+6. Click **📎 Generate Docs** — pick the doc type you need
+7. Export, copy, or post the docs to chat
 
 ---
 
 <p align="center">
-  Made with ❤️ by <strong>TeamMind AI</strong>
+  Built from scratch by <strong>Lucifer</strong> 🔥 | No templates. No shortcuts.
 </p>
